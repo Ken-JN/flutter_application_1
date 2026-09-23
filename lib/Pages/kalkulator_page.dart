@@ -1,64 +1,106 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Components/custom_textField.dart';
+import 'package:flutter_application_1/Controller/kalkulator_controller.dart';
+import 'package:get/get.dart';
 
-class KalkulatorPage extends StatefulWidget {
-  const KalkulatorPage({super.key});
+class KalkulatorPage extends StatelessWidget {
+  KalkulatorPage({super.key});
 
-  @override
-  State<KalkulatorPage> createState() => _KalkulatorPageState();
-}
+  final TextEditingController txtAngka1 = TextEditingController();
+  final TextEditingController txtAngka2 = TextEditingController();
+  final controller = Get.put(KalkulatorController());
 
-class _KalkulatorPageState extends State<KalkulatorPage> {
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Kalkulator"),
-      centerTitle: true,
+      appBar: AppBar(
+        title: Text("Kalkulator"),
+        centerTitle: true,
       ),
       body: Column(
         children: [
           Row(
-            children: [ 
-              Expanded(child: TextField(decoration: InputDecoration(hintText: "Angka 1"),
-                ),
+            children: [
+              Expanded(
+                child: CustomTextField(txtController: txtAngka1, MyHint: "Input angka", textColor: Colors.black),
               ),
-
-              SizedBox(width: 10),
-
-              Expanded(child: TextField(decoration: InputDecoration(hintText: "Angka 2"),
-                ),
+              Expanded(
+                child: CustomTextField(txtController: txtAngka2, MyHint: "Input angka", textColor: Colors.black, ),
               ),
             ],
           ),
-
           SizedBox(height: 30),
-
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange)),onPressed: () {},child: Text('+'),
+              ElevatedButton(
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange)),
+                onPressed: () {
+                  int angka1 = int.parse(txtAngka1.text);
+                  int angka2 = int.parse(txtAngka2.text);
+                  controller.tambah(angka1, angka2);
+                },
+                child: Text('+'),
+              ),
+
+              SizedBox(width: 20),
+
+              ElevatedButton(
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange)),
+                onPressed: () {
+                  int angka1 = int.parse(txtAngka1.text);
+                  int angka2 = int.parse(txtAngka2.text);
+                  controller.kurang(angka1, angka2);
+                },
+                child: Text('-'),
+              ),
+
+              SizedBox(width: 20),
+
+              ElevatedButton(
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),
+                onPressed: () {
+                  int angka1 = int.parse(txtAngka1.text);
+                  int angka2 = int.parse(txtAngka2.text);
+                  controller.kali(angka1, angka2);
+                },
+                child: Text('x'),
+              ),
+
+              SizedBox(width: 20),
+
+              ElevatedButton(
+                style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),
+                onPressed: () {
+                  int angka1 = int.parse(txtAngka1.text);
+                  int angka2 = int.parse(txtAngka2.text);
+                  controller.bagi(angka1, angka2);
+                },
+                child: Text('/'),
               ),
               SizedBox(width: 20),
-              ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.orange)),onPressed: () {},child: Text('-'),
-              ),
-              SizedBox(width: 20),
-              ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),onPressed: () {},child: Text('x'),
-              ),
-               SizedBox(width: 20),
-              ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.blue)),onPressed: () {},child: Text('/'),
-              ),
-               SizedBox(width: 20),
             ],
           ),
 
           SizedBox(height: 30),
 
-          Text("Hasil: 0", 
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.green)),
+          Obx(
+            () => Text(
+              controller.hasil.toString(),
+            ),
+          ),
 
           SizedBox(height: 30),
 
-          ElevatedButton(style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),onPressed: () {},child: Text('Reset'),
+          ElevatedButton(
+            style: ButtonStyle(backgroundColor: MaterialStateProperty.all(Colors.red)),
+            onPressed: () {
+              controller.reset();
+
+              txtAngka1.clear();
+              txtAngka2.clear();
+            },
+            child: Text('Reset'),
           ),
         ],
       ),

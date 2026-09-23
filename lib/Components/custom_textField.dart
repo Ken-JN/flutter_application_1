@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CustomTextField extends StatelessWidget {
 final TextEditingController txtController;
@@ -16,6 +17,10 @@ final Color textColor;
   Widget build(BuildContext context) {
     return TextField(
       controller: txtController,
+      keyboardType: TextInputType.number, 
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.digitsOnly, 
+      ],
       style: TextStyle(color: textColor),
       
       decoration: InputDecoration(
