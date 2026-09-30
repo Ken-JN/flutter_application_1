@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Components/custom_button.dart';
 import 'package:flutter_application_1/Components/custom_textField.dart';
 import 'package:flutter_application_1/Controller/registration_controller.dart';
-import 'package:flutter_application_1/routes.dart';
+import 'package:flutter_application_1/Pages/confirmreg_page.dart';
 import 'package:get/get.dart';
-import 'package:dropdown_flutter/dropdown_flutter.dart';
 
 //https://pub.dev/packages/dropdown_flutter
 
@@ -18,8 +17,6 @@ class RegistrationPage extends StatelessWidget {
     TextEditingController txtAlamat = TextEditingController();
     TextEditingController txtNomor = TextEditingController();
     final controller = Get.put(RegistrationController());
-
-    const List<String> list = <String>['One', 'Two', 'Three', 'Four'];
 
     return Scaffold(
       appBar: AppBar(title: Text("Halaman Rsgistrasi")),
@@ -72,8 +69,8 @@ class RegistrationPage extends StatelessWidget {
             BackgroundColor: Colors.green,
             textColor: Colors.white,
             onPressed: () {
-              Get.toNamed(
-                Routes.confirmreg,
+              Get.to(
+                () => const ConfirmRegPage(),
                 arguments: {
                   'name': txtNama.text.toString(),
                   'alamat': txtAlamat.text.toString(),

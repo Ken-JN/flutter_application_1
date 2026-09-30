@@ -5,12 +5,14 @@ class CustomTextField extends StatelessWidget {
 final TextEditingController txtController;
 final String MyHint;
 final Color textColor;
+final bool isNumber;
 
   const CustomTextField({
     super.key,
     required this.txtController, 
     required this.MyHint,
     required this.textColor,
+    this.isNumber = false,
     });
 
   @override

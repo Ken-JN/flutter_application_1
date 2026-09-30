@@ -22,10 +22,10 @@ class KalkulatorPage extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                child: CustomTextField(txtController: txtAngka1, MyHint: "Input angka", textColor: Colors.black),
+                child: CustomTextField(txtController: txtAngka1, MyHint: "Input angka", textColor: Colors.black, isNumber: true,),
               ),
               Expanded(
-                child: CustomTextField(txtController: txtAngka2, MyHint: "Input angka", textColor: Colors.black, ),
+                child: CustomTextField(txtController: txtAngka2, MyHint: "Input angka", textColor: Colors.black, isNumber: true, ),
               ),
             ],
           ),
