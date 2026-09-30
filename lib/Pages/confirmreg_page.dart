@@ -12,13 +12,50 @@ class ConfirmRegPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Confirm Registration"),),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 25),
 
           Text("Nama: ${controller.nama}", style: TextStyle(fontSize: 20, color: Colors.green),),
-           Text("Alamat: ${controller.alamat}", style: TextStyle(fontSize: 20, color: Colors.green),),
-           Text("Email: ${controller.email}", style: TextStyle(fontSize: 20, color: Colors.green),),
-          Text("Nomor: ${controller.nomor}", style: TextStyle(fontSize: 20, color: Colors.green),),
+
+          // ngambil disini https://yurduseven.net/fmt-2-how-to-draw-a-horizontal-line-in-flutter/
+           const Divider(
+                color: Colors.black,
+                height: 2.5,
+                thickness: 2,
+                indent: 0,
+                endIndent: 200,
+              ),
+
+           Text("Alamat: ${controller.alamat}", style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 76, 81, 175)),),
+
+           const Divider(
+                color: Colors.black,
+                height: 2.5,
+                thickness: 2,
+                indent: 0,
+                endIndent: 200,
+              ),
+
+           Text("Email: ${controller.email}", style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 76, 175, 149)),),
+
+            const Divider(
+                color: Colors.black,
+                height: 2.5,
+                thickness: 2,
+                indent: 0,
+                endIndent: 200,
+              ),
+
+          Text("Nomor: ${controller.nomor}", style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 0, 170, 255)),),
+
+           const Divider(
+                color: Colors.black,
+                height: 2.5,
+                thickness: 2,
+                indent: 0,
+                endIndent: 200,
+              ),
 
           SizedBox(height: 25),
           
