@@ -17,10 +17,11 @@ final Color textColor;
   Widget build(BuildContext context) {
     return TextField(
       controller: txtController,
-      keyboardType: TextInputType.number, 
-      inputFormatters: <TextInputFormatter>[
-        FilteringTextInputFormatter.digitsOnly, 
-      ],
+      keyboardType: isNumber ? TextInputType.number : TextInputType.text,
+
+      inputFormatters: isNumber
+          ? <TextInputFormatter>[FilteringTextInputFormatter.digitsOnly]
+          : null,
       style: TextStyle(color: textColor),
       
       decoration: InputDecoration(

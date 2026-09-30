@@ -4,7 +4,7 @@ import 'package:flutter_application_1/Controller/confirmreg_controller.dart';
 import 'package:get/get.dart';
 
 class ConfirmRegPage extends StatelessWidget {
-  const new({super.key});
+  const ConfirmRegPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +56,9 @@ class ConfirmRegPage extends StatelessWidget {
                 indent: 0,
                 endIndent: 200,
               ),
+
+          Text("Gender: ${controller.jenisKelamin}", style: TextStyle(fontSize: 20, color: const Color.fromARGB(255, 5, 182, 40))),
+
 
           SizedBox(height: 25),
           
