@@ -47,7 +47,7 @@ class RegistrationPage extends StatelessWidget {
             isNumber: true,
           ),
 
-     Obx(() => DropdownButton<String>(
+      Obx(() => DropdownButton<String>(
               value: controller.jenisKelamin.value,
               items: const ['Laki-laki', 'Perempuan'].map((String value) {
                 return DropdownMenuItem<String>(
