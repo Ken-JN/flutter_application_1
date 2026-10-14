@@ -18,7 +18,7 @@ class Routes {
     GetPage(name: confirmreg, page: ()=> ConfirmRegPage()),
     GetPage(name: registration, page: ()=> RegistrationPage()),
     GetPage(name: listmakanan, page: ()=> ListMakananPage()),
-    GetPage(name: detaillistmakanan, page: ()=> const DetailListMakanan()),
+    GetPage(name: detaillistmakanan, page: ()=> DetailListMakanan()),
   ];
 
 

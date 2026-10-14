@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Models/makanan_model.dart';
+import 'package:flutter_application_1/Controller/detaillistmakanan_controller.dart';
 import 'package:get/get.dart';
 
 class DetailListMakanan extends StatelessWidget {
@@ -7,8 +7,7 @@ class DetailListMakanan extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    final MakananModel makanan = Get.arguments;
+    final controller = Get.put(DetaillistmakananController());
 
     return Scaffold(
       appBar: AppBar(
@@ -21,29 +20,26 @@ class DetailListMakanan extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
    
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
+              Card(
                 child: Image.network(
-                  makanan.gambar,
+                  controller.gambar,
                   height: 200,
                   width: double.infinity,
-                  fit: BoxFit.cover,
                 ),
               ),
 
-              SizedBox(height: 15),
+              SizedBox(height: 15), 
 
-          
               Text(
-                makanan.namaMakanan,
+                controller.namaMakanan,
                 style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
 
               SizedBox(height: 5),
 
-    
+
               Text(
-                "Harga: " + makanan.hargaMakanan,
+                "Harga: " + controller.hargaMakanan,
                 style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -55,39 +51,36 @@ class DetailListMakanan extends StatelessWidget {
 
               Row(
                 children: [
-                  Icon(Icons.star, color: Colors.amber),
-                  Icon(Icons.star, color: Colors.amber),
-                  Icon(Icons.star, color: Colors.amber),
-                  Icon(Icons.star, color: Colors.amber),
-                  Icon(Icons.star, color: Colors.amber),
+                  Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2)),
+                  Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2)),
+                  Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2)),
+                  Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2)),
+                  Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2)),
                   SizedBox(width: 5),
                   Text(
-                    makanan.rating + " / 5",
+                    controller.rating + " / 5",
                     style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),
 
               SizedBox(height: 15),
-              Divider(thickness: 2),
-              SizedBox(height: 10),
 
-    
+   
               Text(
                 "Detail Makanan:",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 5),
               Text(
-                makanan.deskripsiMakanan,
+                controller.deskripsiMakanan,
                 style: TextStyle(fontSize: 16),
               ),
 
               SizedBox(height: 15),
-              Divider(thickness: 2),
               SizedBox(height: 10),
 
-    
+   
               Text(
                 "Review Pelanggan:",
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
@@ -109,16 +102,16 @@ class DetailListMakanan extends StatelessWidget {
                       SizedBox(height: 5),
                       Row(
                         children: [
-                          Icon(Icons.star, color: Colors.amber, size: 18),
-                          Icon(Icons.star, color: Colors.amber, size: 18),
-                          Icon(Icons.star, color: Colors.amber, size: 18),
-                          Icon(Icons.star, color: Colors.amber, size: 18),
-                          Icon(Icons.star, color: Colors.amber, size: 18),
+                          Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2), size: 18),
+                          Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2), size: 18),
+                          Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2), size: 18),
+                          Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2), size: 18),
+                          Icon(Icons.star, color: Color.fromARGB(255, 248, 186, 2), size: 18),
                         ],
                       ),
                       SizedBox(height: 5),
                       Text(
-                        makanan.review,
+                        controller.review,
                         style: TextStyle(fontSize: 14),
                       ),
                     ],

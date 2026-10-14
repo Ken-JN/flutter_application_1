@@ -3,7 +3,7 @@ import 'package:flutter_application_1/Models/makanan_model.dart';
 
 class ListmakananController extends GetxController {
 
-  List<MakananModel> listMakanan = [
+  RxList<MakananModel> listMakanan = [
     MakananModel(
       namaMakanan: 'Soto Ayam',
       deskripsiMakanan: 'Soto ayam makanan khas Indonesia berupa sup ayam berkuah kuning dengan bumbu rempah seperti kunyit, serai, dan daun jeruk',
@@ -12,7 +12,7 @@ class ListmakananController extends GetxController {
       rating: '5',
       review: 'wuenak',
     ),
-    MakananModel(
+    MakananModel( 
       namaMakanan: 'Lentog',
       deskripsiMakanan: 'Lentog makanan tradisional khas Kabupaten Kudus, Jawa Tengah, yang menyerupai lontong sayur dan sangat populer sebagai menu sarapan.',
       hargaMakanan: 'Rp 12.000',
@@ -44,6 +44,6 @@ class ListmakananController extends GetxController {
       rating: '3',
       review: 'Kureng',
     ),
-  ];
+  ].obs;
 
 }
