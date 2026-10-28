@@ -3,7 +3,7 @@ import 'package:flutter_application_1/Controller/mainmenu_controller.dart';
 import 'package:get/get.dart';
 
 class MainMenuPage extends StatelessWidget {
-  MainMenuPage({super.key});
+  const MainMenuPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -18,18 +18,21 @@ class MainMenuPage extends StatelessWidget {
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: controller.selectedIndex.value,
           onTap: controller.changePage,
-
-          items: [
+          type: BottomNavigationBarType.fixed,
+          items: const [
             BottomNavigationBarItem(
               icon: Icon(Icons.home_outlined),
+              activeIcon: Icon(Icons.home),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.history_outlined),
+              activeIcon: Icon(Icons.history),
               label: 'History',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_outlined),
+              activeIcon: Icon(Icons.person),
               label: 'Profile',
             ),
           ],
@@ -38,4 +41,3 @@ class MainMenuPage extends StatelessWidget {
     );
   }
 }
-
