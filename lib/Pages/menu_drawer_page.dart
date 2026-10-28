@@ -28,6 +28,27 @@ class MenuDrawerPage extends StatelessWidget {
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
+             const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.green,
+              ), // BoxDecoration
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.green),
+                accountName: Text(
+                  "AhmadKenzie",
+                  style: TextStyle(fontSize: 18),
+                ),
+                accountEmail: Text("ahmadkenzie003@gmail.com"),
+                currentAccountPictureSize: Size.square(50),
+                currentAccountPicture: CircleAvatar(
+                  backgroundColor: Color.fromARGB(255, 165, 255, 137),
+                  child: Text(
+                    "A",
+                    style: TextStyle(fontSize: 30.0, color: Colors.blue),
+                  ), // Text
+                ), // CircleAvatar
+              ), // UserAccountDrawerHeader
+            ), // Draw
             const SizedBox(height: 100),
             ListTile(
               leading: const Icon(Icons.home),
